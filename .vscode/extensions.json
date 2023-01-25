@@ -1,0 +1,9 @@
+{
+  "recommendations": [
+    "antfu.unocss",
+    "esbenp.prettier-vscode",
+    "antfu.iconify",
+    "lokalise.i18n-ally",
+    "dbaeumer.vscode-eslint"
+  ]
+}

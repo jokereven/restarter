@@ -20,12 +20,6 @@ export default defineConfig({
   ],
   rules: [
     [
-      'drop-shadow-vite',
-      {
-        filter: 'drop-shadow(0 0 2em #646cffaa)',
-      },
-    ],
-    [
       'drop-shadow-react',
       {
         filter: 'drop-shadow(0 0 2em #61dafbaa)',
