@@ -15,8 +15,8 @@ export function LanguageSwitch() {
   }
 
   return (
-    <button className="icon-btn" onClick={changeLanguage}>
-      <div className="i-mdi-translate"></div>
+    <button icon-btn onClick={changeLanguage}>
+      <div i-mdi-translate></div>
     </button>
   )
 }

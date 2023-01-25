@@ -20,7 +20,7 @@ const i18nToLocale = {
 const router = createBrowserRouter(routes)
 
 const App = () => {
-  const [isDark] = useDark()
+  const { isDark } = useDark()
   const [, i18n] = useTranslation()
 
   return (

@@ -32,8 +32,8 @@ export function useDark() {
     }
   }
 
-  return [
-    setting === 'dark' || (isDark && setting !== 'light'),
+  return {
+    isDark: setting === 'dark' || (isDark && setting !== 'light'),
     toggleDark,
-  ] as const
+  }
 }

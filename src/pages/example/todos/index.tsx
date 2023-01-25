@@ -51,8 +51,10 @@ function TodoTable() {
 
 export default function TodoList() {
   return (
-    <div className="mx-auto p-8 max-w-2xl">
-      <h1 className="mb-4 text-3xl">TODO LIST</h1>
+    <div mx-auto p-8 max-w-2xl>
+      <h1 mb-4 text-3xl>
+        TODO LIST
+      </h1>
       <TodoTable />
     </div>
   )

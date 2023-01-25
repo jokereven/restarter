@@ -1,9 +1,9 @@
 import { useDark } from '@/hooks'
 
 function ApperanceSwitch() {
-  const [isDark, toggleDark] = useDark()
+  const { isDark, toggleDark } = useDark()
   return (
-    <button onClick={toggleDark} className="icon-btn">
+    <button icon-btn onClick={toggleDark}>
       <div
         className={
           isDark ? 'i-mdi-moon-waxing-crescent' : 'i-mdi-white-balance-sunny'

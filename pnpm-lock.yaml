@@ -8,7 +8,9 @@ specifiers:
   '@types/react-dom': ^18.0.10
   '@typescript-eslint/eslint-plugin': ^5.48.1
   '@typescript-eslint/parser': ^5.48.1
+  '@unocss/preset-attributify': ^0.48.5
   '@unocss/reset': ^0.48.3
+  '@unocss/transformer-attributify-jsx': ^0.48.5
   '@vitejs/plugin-react-swc': ^3.0.1
   antd: ^5.1.4
   axios: ^1.2.2
@@ -55,6 +57,8 @@ devDependencies:
   '@types/react-dom': 18.0.10
   '@typescript-eslint/eslint-plugin': 5.48.1_3jon24igvnqaqexgwtxk6nkpse
   '@typescript-eslint/parser': 5.48.1_iukboom6ndih5an6iafl45j2fe
+  '@unocss/preset-attributify': 0.48.5
+  '@unocss/transformer-attributify-jsx': 0.48.5
   '@vitejs/plugin-react-swc': 3.0.1_vite@4.0.4
   eslint: 8.31.0
   eslint-config-react-app: 7.0.1_iukboom6ndih5an6iafl45j2fe
@@ -2473,6 +2477,10 @@ packages:
     resolution: {integrity: sha512-CHlJkXUoV4M35yrpFm6TUx6avdlVEbzjusSNVYhxbQC3Wii5XepY6VqswYmA9G29g9URSfl6IBTx5PBqx/lacw==}
     dev: true
 
+  /@unocss/core/0.48.5:
+    resolution: {integrity: sha512-goidlxqDEW14yYzLIqyUsoVPvrq3BuxvzY+87tulfHtiHWXd7fITSjHu80Bn0J6LZm1bVn2/D5nfE7ZLU/uW8g==}
+    dev: true
+
   /@unocss/inspector/0.48.3:
     resolution: {integrity: sha512-qsTtbb0PxJdEoGrl9fY02V8XZdZwIuPt2UClgTzHEjxmvmHOnb1b3dBR9DfaqD/wURfaPhBmF30y6wzmVcEWNQ==}
     dependencies:
@@ -2484,6 +2492,12 @@ packages:
     resolution: {integrity: sha512-qzDr+gueFNXBXgtGywEZLQxkaVKBvIEAvVKRYaq8x7DcIenDtO2VND6Hzaoqet5CdjW8zBgbQxpDJJmnIADPzw==}
     dependencies:
       '@unocss/core': 0.48.3
+    dev: true
+
+  /@unocss/preset-attributify/0.48.5:
+    resolution: {integrity: sha512-nxYChw4vpppKt1nIFItsFkopdH7gTY19ZE4ieMen3cP27YWC6BSNg5L4QksaLlABPCIqAYHmpH3e41FGZonM+g==}
+    dependencies:
+      '@unocss/core': 0.48.5
     dev: true
 
   /@unocss/preset-icons/0.48.3:
@@ -2547,6 +2561,12 @@ packages:
     resolution: {integrity: sha512-e954i2/+XPXA/xVCD/CR8AK411GEUkQu+kxXWjH+ruuFURrlay5xTUL1KHZuupJ3WKOD3wyg3ICSGovQv9Ug0g==}
     dependencies:
       '@unocss/core': 0.48.3
+    dev: true
+
+  /@unocss/transformer-attributify-jsx/0.48.5:
+    resolution: {integrity: sha512-GRV3aNXgQ9YBXblwGV4PgVjUZExsAyGViN2LVl1qAUlnN3IgTjBFGGWo9t/I90LEk3Sy1TiOj05iZ9vB0RPq8g==}
+    dependencies:
+      '@unocss/core': 0.48.5
     dev: true
 
   /@unocss/transformer-compile-class/0.48.3:
