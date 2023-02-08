@@ -6,6 +6,7 @@
     "lokalise.i18n-ally",
     "dbaeumer.vscode-eslint",
     "editorconfig.editorconfig",
-    "humao.rest-client"
+    "humao.rest-client",
+    "irongeek.vscode-env"
   ]
 }

@@ -1,8 +1,6 @@
 import originalAxios from 'axios'
 
-const baseURL = 'https://jsonplaceholder.typicode.com/'
-
 export const axios = originalAxios.create({
-  baseURL,
+  baseURL: import.meta.env.VITE_API_BASE_URL,
   timeout: 4000,
 })
