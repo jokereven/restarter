@@ -22,6 +22,7 @@ Inspired by [vitesse](https://github.com/antfu/vitesse)
 - [TypeScript](https://www.typescriptlang.org/)
 - [pnpm](https://pnpm.io/) - Fast, disk space efficient package manager
 - [taze](https://github.com/antfu/taze) - A modern cli tool that keeps your deps fresh
+- [REST Client](https://github.com/Huachao/vscode-restclient) - REST Client Extension for Visual Studio Code
 
 ## Usage
 

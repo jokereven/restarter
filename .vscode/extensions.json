@@ -5,6 +5,7 @@
     "antfu.iconify",
     "lokalise.i18n-ally",
     "dbaeumer.vscode-eslint",
-    "editorconfig.editorconfig"
+    "editorconfig.editorconfig",
+    "humao.rest-client"
   ]
 }
