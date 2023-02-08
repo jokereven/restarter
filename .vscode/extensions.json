@@ -4,6 +4,7 @@
     "esbenp.prettier-vscode",
     "antfu.iconify",
     "lokalise.i18n-ally",
-    "dbaeumer.vscode-eslint"
+    "dbaeumer.vscode-eslint",
+    "editorconfig.editorconfig"
   ]
 }
