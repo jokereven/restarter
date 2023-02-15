@@ -27,7 +27,7 @@ Inspired by [vitesse](https://github.com/antfu/vitesse)
 ## Usage
 
 ```bash
-npx degit hyoban/react-starter my-app
+npx degit hyoban/restarter my-app
 cd my-app
 pnpm i
 pnpm dev
