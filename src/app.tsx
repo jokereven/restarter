@@ -7,17 +7,46 @@ import { ConfigProvider, theme } from 'antd'
 import enUS from 'antd/locale/en_US'
 import zhCN from 'antd/locale/zh_CN'
 import { useTranslation } from 'react-i18next'
-import { RouterProvider, createBrowserRouter } from 'react-router-dom'
-import routes from '~react-pages'
+import { RouterProvider, createBrowserRouter, Outlet } from 'react-router-dom'
 
+import SidebarNav from '@/components/SidebarNav'
 import { useDark } from '@/hooks'
+import Home from '@/pages'
+import TodoList from '@/pages/example/todos'
+import TodoCard from '@/pages/example/todos/[id]'
 
 const i18nToLocale = {
   en: enUS,
   zh: zhCN,
 }
 
-const router = createBrowserRouter(routes)
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <Home />,
+  },
+  {
+    path: '/example/todos/',
+    element: (
+      <div h-full flex>
+        <SidebarNav />
+        <div w-full>
+          <Outlet />
+        </div>
+      </div>
+    ),
+    children: [
+      {
+        path: '',
+        element: <TodoList />,
+      },
+      {
+        path: ':id',
+        element: <TodoCard />,
+      },
+    ],
+  },
+])
 
 const App = () => {
   const { isDark } = useDark()

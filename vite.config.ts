@@ -2,7 +2,6 @@ import react from '@vitejs/plugin-react-swc'
 import path from 'path'
 import Unocss from 'unocss/vite'
 import { defineConfig } from 'vite'
-import Pages from 'vite-plugin-pages'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -11,11 +10,5 @@ export default defineConfig({
       '@/': `${path.resolve(__dirname, 'src')}/`,
     },
   },
-  plugins: [
-    react(),
-    Pages({
-      importMode: 'sync',
-    }),
-    Unocss(),
-  ],
+  plugins: [react(), Unocss()],
 })

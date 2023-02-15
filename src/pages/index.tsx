@@ -5,12 +5,12 @@ import { Link } from 'react-router-dom'
 import ApperanceSwitch from '@/components/ApperanceSwitch'
 import LanguageSwitch from '@/components/languageSwitch'
 
-function App() {
+function Home() {
   const navigate = useNavigate()
   const { t } = useTranslation()
 
   return (
-    <div flex="~ col gap-4" items-center pt-20>
+    <div flex="~ col gap-4" items-center pt-20 w-full>
       <a href="https://beta.reactjs.org" target="_blank" rel="noreferrer">
         <img
           src="/react.svg"
@@ -63,4 +63,4 @@ function App() {
   )
 }
 
-export default App
+export default Home
