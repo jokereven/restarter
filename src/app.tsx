@@ -28,9 +28,9 @@ const router = createBrowserRouter([
   {
     path: '/example/todos/',
     element: (
-      <div h-full flex>
+      <div className="h-full flex">
         <SidebarNav />
-        <div w-full>
+        <div className="w-full">
           <Outlet />
         </div>
       </div>

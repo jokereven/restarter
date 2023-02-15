@@ -25,10 +25,12 @@ function getItem(
 }
 
 const items: MenuItem[] = [
-  getItem('TODO', 'todo', <div i-mdi-calendar-today-outline></div>, [
-    getItem('Item 1', '/example/todos/1'),
-    getItem('List', '/example/todos/'),
-  ]),
+  getItem(
+    'TODO',
+    'todo',
+    <div className="i-mdi-calendar-today-outline"></div>,
+    [getItem('Item 1', '/example/todos/1'), getItem('List', '/example/todos/')],
+  ),
 ]
 
 const SidebarNav = () => {
