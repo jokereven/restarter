@@ -21,7 +21,7 @@ function Home() {
       <h1 className="font-mono text-xl">{t('Restarter')}</h1>
       <div className="flex items-center gap-2">
         <input
-          className="w-35 h-10 border-1 border-gray-300 dark:border-gray-600 rounded-md p-2 focus:outline-none focus:ring-1 focus:ring-gray-300 dark:bg-stone-900"
+          className="w-36 h-10 border-2 border-gray-300 dark:border-gray-600 rounded-md p-2 focus:outline-none focus:ring-1 focus:ring-gray-300 dark:bg-stone-900"
           placeholder={t('Home input placeholder') as string}
           onKeyDown={(e) => {
             if (e.key === 'Enter') {
