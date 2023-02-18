@@ -28,7 +28,7 @@ const router = createBrowserRouter([
     element: (
       <div className="h-full flex">
         <SidebarNav />
-        <div className="w-full">
+        <div className="w-full h-full overflow-y-scroll">
           <Outlet />
         </div>
       </div>
