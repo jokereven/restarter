@@ -28,4 +28,5 @@ module.exports = {
     ],
     "react-refresh/only-export-components": "warn",
   },
+  files: ["*.ts", "*.tsx"],
 };

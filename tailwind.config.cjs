@@ -1,7 +1,6 @@
 const {
   iconsPlugin,
   getIconCollections,
-  // eslint-disable-next-line @typescript-eslint/no-var-requires
 } = require("@egoist/tailwindcss-icons");
 
 /** @type {import('tailwindcss').Config} */
