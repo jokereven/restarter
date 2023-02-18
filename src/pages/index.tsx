@@ -39,7 +39,7 @@ function Home() {
           </Link>
         </span>
       </div>
-      <div className="flex gap-3">
+      <div className="flex gap-3 text-2xl">
         <ApperanceSwitch />
         <LanguageSwitch />
         <a
