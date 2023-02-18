@@ -1,4 +1,3 @@
-/** @type {import("@ianvs/prettier-plugin-sort-imports").PrettierConfig} */
 module.exports = {
   semi: false,
   singleQuote: true,
