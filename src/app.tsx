@@ -1,6 +1,4 @@
 import '@/locales/i18n'
-import '@unocss/reset/tailwind.css'
-import 'virtual:uno.css'
 import '@/main.css'
 
 import { ConfigProvider, theme } from 'antd'
