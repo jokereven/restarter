@@ -5,8 +5,7 @@ Inspired by [vitesse](https://github.com/antfu/vitesse)
 ## Features
 
 - [Jotai](https://jotai.org/) - Primitive and flexible state management for React
-- [SWR](https://swr.vercel.app/) - React Hooks for data fetching
-  - [Axios](https://axios-http.com/) - Promise based HTTP client for the browser and node.js
+- [TanStack Query](https://github.com/tanstack/query) - 🤖 Powerful asynchronous state management, server-state utilities and data fetching for the web. TS/JS, React Query, Solid Query, Svelte Query and Vue Query.
 - [tailwindcss](https://tailwindcss.com/) - A utility-first CSS framework for rapidly building custom user interfaces
   - [@egoist/tailwindcss-icons](https://github.com/egoist/tailwindcss-icons) - Use any icon (100,000+) from Iconify, for TailwindCSS
 - [Iconify](https://iconify.design) - use icons from any icon sets [🔍Icônes](https://icones.netlify.app/)
@@ -18,6 +17,7 @@ Inspired by [vitesse](https://github.com/antfu/vitesse)
   - [eslint-plugin-react-refresh](https://github.com/ArnaudBarre/eslint-plugin-react-refresh) - Validate that your components can safely be updated with fast refresh
 - [Prettier](https://prettier.io/)
   - Use default config with [`.editorconfig`](https://editorconfig.org/)
+  - no semi
 - [TypeScript](https://www.typescriptlang.org/)
 - [pnpm](https://pnpm.io/) - Fast, disk space efficient package manager
 - [taze](https://github.com/antfu/taze) - A modern cli tool that keeps your deps fresh

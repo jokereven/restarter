@@ -1,8 +1,7 @@
 import { Table } from "antd"
 import { useState } from "react"
-import { preload } from "swr"
 
-import { todoFetcher, useTodoList } from "@/network/useTodo"
+import { useTodoList } from "@/network/useTodo"
 
 const columns = [
   {
@@ -20,13 +19,11 @@ const columns = [
   },
 ]
 
-preload("/todos/?userId=1", todoFetcher)
-
 function TodoTable() {
   const [current, setCurrent] = useState(1)
   const { todos, isLoading, error } = useTodoList(current)
 
-  if (error) return <div>Error: {error.message}</div>
+  if (error) return <div>Error: {(error as Error).message}</div>
   return (
     <Table
       loading={isLoading || !todos}

@@ -1,6 +1,4 @@
-import useSWR from "swr"
-
-import { axios } from "@/network/axios"
+import { useQuery } from "@tanstack/react-query"
 
 export interface Todo {
   userId: number
@@ -10,13 +8,15 @@ export interface Todo {
 }
 
 export const todoFetcher = (url: string) =>
-  axios.get(url).then((res) => res.data)
+  fetch(import.meta.env.VITE_API_BASE_URL + url).then(
+    (res) => res.json() as Promise<Todo[]>
+  )
 
 export function useTodoList(userId?: number) {
-  const { data, error, isLoading } = useSWR<Todo[]>(
-    userId ? `/todos/?userId=${userId}` : "/todos",
-    todoFetcher
-  )
+  const { data, error, isLoading } = useQuery({
+    queryKey: ["todos", userId],
+    queryFn: () => todoFetcher(userId ? `/todos/?userId=${userId}` : "/todos"),
+  })
 
   return {
     todos: data,
@@ -26,10 +26,10 @@ export function useTodoList(userId?: number) {
 }
 
 export function useTodo(todoId: number) {
-  const { data, error, isLoading } = useSWR<Todo>(
-    `/todos/${todoId}`,
-    todoFetcher
-  )
+  const { data, error, isLoading } = useQuery({
+    queryKey: ["todo", todoId],
+    queryFn: () => todoFetcher(`/todos/${todoId}`),
+  })
 
   return {
     todo: data,
