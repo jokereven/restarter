@@ -1,10 +1,10 @@
-import type { MenuProps } from "antd";
+import type { MenuProps } from "antd"
 
-import { Menu } from "antd";
-import { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Menu } from "antd"
+import { useState } from "react"
+import { Link, useLocation } from "react-router-dom"
 
-type MenuItem = Required<MenuProps>["items"][number];
+type MenuItem = Required<MenuProps>["items"][number]
 
 function menu(
   label: React.ReactNode,
@@ -19,7 +19,7 @@ function menu(
     children,
     label: <Link to={key}>{label}</Link>,
     type,
-  } as MenuItem;
+  } as MenuItem
 }
 
 const items: MenuItem[] = [
@@ -27,11 +27,11 @@ const items: MenuItem[] = [
     menu("Item 1", "/example/todos/1"),
     menu("List", "/example/todos/"),
   ]),
-];
+]
 
 const SidebarNav = () => {
-  const location = useLocation();
-  const [current, setCurrent] = useState(location.pathname);
+  const location = useLocation()
+  const [current, setCurrent] = useState(location.pathname)
 
   return (
     <Menu
@@ -42,7 +42,7 @@ const SidebarNav = () => {
       defaultOpenKeys={["todo"]}
       className="h-full w-64 hidden md:block"
     />
-  );
-};
+  )
+}
 
-export default SidebarNav;
+export default SidebarNav

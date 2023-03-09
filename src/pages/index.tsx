@@ -1,13 +1,13 @@
-import { useTranslation } from "react-i18next";
-import { useNavigate } from "react-router";
-import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next"
+import { useNavigate } from "react-router"
+import { Link } from "react-router-dom"
 
-import ApperanceSwitch from "@/components/ApperanceSwitch";
-import LanguageSwitch from "@/components/languageSwitch";
+import ApperanceSwitch from "@/components/ApperanceSwitch"
+import LanguageSwitch from "@/components/languageSwitch"
 
 function Home() {
-  const navigate = useNavigate();
-  const { t } = useTranslation();
+  const navigate = useNavigate()
+  const { t } = useTranslation()
 
   return (
     <div className="flex flex-col gap-4 items-center pt-20 w-full">
@@ -25,7 +25,7 @@ function Home() {
           placeholder={t("Home input placeholder") as string}
           onKeyDown={(e) => {
             if (e.key === "Enter") {
-              navigate(`/example/todos/${e.currentTarget.value}`);
+              navigate(`/example/todos/${e.currentTarget.value}`)
             }
           }}
         ></input>
@@ -51,7 +51,7 @@ function Home() {
         </a>
       </div>
     </div>
-  );
+  )
 }
 
-export default Home;
+export default Home

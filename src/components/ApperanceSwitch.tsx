@@ -1,7 +1,7 @@
-import { useDark } from "@/hooks";
+import { useDark } from "@/hooks"
 
 function ApperanceSwitch() {
-  const { isDark, toggleDark } = useDark();
+  const { isDark, toggleDark } = useDark()
   return (
     <button className="icon-btn" onClick={toggleDark}>
       <div
@@ -10,7 +10,7 @@ function ApperanceSwitch() {
         }
       ></div>
     </button>
-  );
+  )
 }
 
-export default ApperanceSwitch;
+export default ApperanceSwitch
