@@ -2,7 +2,7 @@ import { useTranslation } from "react-i18next"
 import { useNavigate } from "react-router"
 import { Link } from "react-router-dom"
 
-import ApperanceSwitch from "@/components/ApperanceSwitch"
+import AppearanceSwitch from "@/components/AppearanceSwitch"
 import LanguageSwitch from "@/components/languageSwitch"
 
 function Home() {
@@ -40,7 +40,7 @@ function Home() {
         </span>
       </div>
       <div className="flex gap-3 text-2xl">
-        <ApperanceSwitch />
+        <AppearanceSwitch />
         <LanguageSwitch />
         <a
           href="https://github.com/hyoban/react-starter"

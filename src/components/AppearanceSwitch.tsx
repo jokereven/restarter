@@ -1,6 +1,6 @@
 import { useDark } from "@/hooks"
 
-function ApperanceSwitch() {
+function AppearanceSwitch() {
   const { isDark, toggleDark } = useDark()
   return (
     <button className="icon-btn" onClick={toggleDark}>
@@ -13,4 +13,4 @@ function ApperanceSwitch() {
   )
 }
 
-export default ApperanceSwitch
+export default AppearanceSwitch
