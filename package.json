@@ -28,7 +28,8 @@
   },
   "devDependencies": {
     "@egoist/tailwindcss-icons": "^1.0.7",
-    "@iconify/json": "^2.2.44",
+    "@iconify-json/carbon": "^1.1.16",
+    "@iconify-json/mdi": "^1.1.50",
     "@types/node": "^18.15.11",
     "@types/react": "^18.0.32",
     "@types/react-dom": "^18.0.11",

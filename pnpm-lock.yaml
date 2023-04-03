@@ -2,7 +2,8 @@ lockfileVersion: 5.4
 
 specifiers:
   '@egoist/tailwindcss-icons': ^1.0.7
-  '@iconify/json': ^2.2.44
+  '@iconify-json/carbon': ^1.1.16
+  '@iconify-json/mdi': ^1.1.50
   '@tanstack/react-query': ^4.28.0
   '@total-typescript/ts-reset': ^0.4.2
   '@types/node': ^18.15.11
@@ -47,7 +48,8 @@ dependencies:
 
 devDependencies:
   '@egoist/tailwindcss-icons': 1.0.7_tailwindcss@3.3.1
-  '@iconify/json': 2.2.44
+  '@iconify-json/carbon': 1.1.16
+  '@iconify-json/mdi': 1.1.50
   '@types/node': 18.15.11
   '@types/react': 18.0.32
   '@types/react-dom': 18.0.11
@@ -1798,11 +1800,16 @@ packages:
     resolution: {integrity: sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==}
     dev: true
 
-  /@iconify/json/2.2.44:
-    resolution: {integrity: sha512-b2nGHHjRLVT+OnT6x+u1aLP6HATM6PAzgoBt2VphPt7vLaspnrkAXl1iXFbNkP1VKovi92OhlhxYJwcq9k+epA==}
+  /@iconify-json/carbon/1.1.16:
+    resolution: {integrity: sha512-AD8bcnRSGA0WfcGEass2FbA0sagrUzrpFx5WchuDy3uf7yKBWumdypdQK121DH321fQDl5+zZQ26T6gC9knwUQ==}
     dependencies:
       '@iconify/types': 2.0.0
-      pathe: 1.1.0
+    dev: true
+
+  /@iconify-json/mdi/1.1.50:
+    resolution: {integrity: sha512-SgbT5w5eHCdOG74ZWPz7HlTGk6VsifIJhNi6lAsxj/5Nlqt6Cz4LlQmSa9eecU9p075Jub2aAx/o7YI+GCahRQ==}
+    dependencies:
+      '@iconify/types': 2.0.0
     dev: true
 
   /@iconify/types/2.0.0:
@@ -5063,10 +5070,6 @@ packages:
   /path-type/4.0.0:
     resolution: {integrity: sha512-gDKb8aZMDeD/tZWs9P6+q0J9Mwkdl6xMV8TjnGP3qJVJ06bdMgkbBlLU8IdfOsIsFz2BW1rNVT3XuNEl8zPAvw==}
     engines: {node: '>=8'}
-    dev: true
-
-  /pathe/1.1.0:
-    resolution: {integrity: sha512-ODbEPR0KKHqECXW1GoxdDb+AZvULmXjVPy4rt+pGo2+TnjJTIPJQSVS6N63n8T2Ip+syHhbn52OewKicV0373w==}
     dev: true
 
   /picocolors/1.0.0:
