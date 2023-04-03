@@ -6,6 +6,12 @@ export default {
   darkMode: "class",
   theme: {
     extend: {
+      colors: {
+        yellow: "#F0AB00",
+        black: "#001529",
+        gray: "#9B9B9B",
+        white: "#FFFFFF",
+      },
       dropShadow: {
         react: "0 0 2em #61dafbaa",
       },
@@ -14,7 +20,7 @@ export default {
   plugins: [
     iconsPlugin({
       // Select the icon collections you want to use
-      collections: getIconCollections(["mdi"]),
+      collections: getIconCollections(["mdi", "carbon"]),
     }),
   ],
 } satisfies Config

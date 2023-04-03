@@ -7,7 +7,7 @@ import { ConfigProvider, theme } from "antd"
 import enUS from "antd/locale/en_US"
 import zhCN from "antd/locale/zh_CN"
 import { useTranslation } from "react-i18next"
-import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom"
+import { Outlet, RouterProvider, createBrowserRouter } from "react-router-dom"
 
 import SidebarNav from "@/components/SidebarNav"
 import { useDark } from "@/hooks"
@@ -59,6 +59,9 @@ const App = () => {
       <ConfigProvider
         theme={{
           algorithm: isDark ? theme.darkAlgorithm : theme.defaultAlgorithm,
+          token: {
+            colorPrimary: "#F0AB00",
+          },
         }}
         locale={
           i18nToLocale[i18n.language as keyof typeof i18nToLocale] ?? enUS

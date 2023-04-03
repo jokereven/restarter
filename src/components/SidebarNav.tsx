@@ -1,8 +1,8 @@
 import type { MenuProps } from "antd"
-
 import { Menu } from "antd"
 import { useState } from "react"
 import { Link, useLocation } from "react-router-dom"
+import "./menu.css"
 
 type MenuItem = Required<MenuProps>["items"][number]
 
@@ -29,20 +29,32 @@ const items: MenuItem[] = [
   ]),
 ]
 
-const SidebarNav = () => {
+function NavHeader() {
+  return (
+    <div className="flex flex-col items-center my-4 text-white gap-4">
+      <div className="flex items-center gap-2">
+        <span className="i-carbon-alarm text-yellow text-2xl"></span>
+        <h1 className="text-lg font-bold">这是标题</h1>
+      </div>
+      <p className="text-sm opacity-70">这是一句描述</p>
+    </div>
+  )
+}
+
+export default function SidebarNav() {
   const location = useLocation()
   const [current, setCurrent] = useState(location.pathname)
 
   return (
-    <Menu
-      onClick={(e) => setCurrent(e.key)}
-      selectedKeys={[current]}
-      mode="inline"
-      items={items}
-      defaultOpenKeys={["todo"]}
-      className="h-full w-64 hidden md:block"
-    />
+    <div className="h-full w-64 hidden md:block bg-black">
+      <NavHeader />
+      <Menu
+        onClick={(e) => setCurrent(e.key)}
+        selectedKeys={[current]}
+        mode="inline"
+        items={items}
+        defaultOpenKeys={["todo"]}
+      />
+    </div>
   )
 }
-
-export default SidebarNav
