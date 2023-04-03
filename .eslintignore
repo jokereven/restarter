@@ -21,7 +21,7 @@ dist-ssr
 *.sln
 *.sw?
 
-vite.config.ts
+*.ts
 *.cjs
 *.mjs
 *.js

@@ -1,7 +1,7 @@
-const { iconsPlugin, getIconCollections } = require("@egoist/tailwindcss-icons")
+import { getIconCollections, iconsPlugin } from "@egoist/tailwindcss-icons"
+import type { Config } from "tailwindcss"
 
-/** @type {import('tailwindcss').Config} */
-module.exports = {
+export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   darkMode: "class",
   theme: {
@@ -17,4 +17,4 @@ module.exports = {
       collections: getIconCollections(["mdi"]),
     }),
   ],
-}
+} satisfies Config
