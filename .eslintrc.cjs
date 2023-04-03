@@ -7,6 +7,7 @@ module.exports = {
   extends: [
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/recommended-requiring-type-checking",
     "react-app",
   ],
   overrides: [],
@@ -14,7 +15,10 @@ module.exports = {
   parserOptions: {
     ecmaVersion: "latest",
     sourceType: "module",
+    project: true,
+    tsconfigRootDir: __dirname,
   },
+  root: true,
   plugins: ["react-refresh"],
   rules: {
     "object-shorthand": "warn",
@@ -28,5 +32,4 @@ module.exports = {
     ],
     "react-refresh/only-export-components": "warn",
   },
-  files: ["*.ts", "*.tsx"],
 }

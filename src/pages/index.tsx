@@ -22,7 +22,7 @@ function Home() {
       <div className="flex items-center gap-2">
         <input
           className="w-36 h-10 border-2 border-gray-300 dark:border-gray-600 rounded-md p-2 focus:outline-none focus:ring-1 focus:ring-gray-300 dark:bg-stone-900"
-          placeholder={t("Home input placeholder") as string}
+          placeholder={t("Home input placeholder") ?? ""}
           onKeyDown={(e) => {
             if (e.key === "Enter") {
               navigate(`/example/todos/${e.currentTarget.value}`)

@@ -5,11 +5,13 @@ export function LanguageSwitch() {
 
   const changeLanguage = () => {
     if (Array.isArray(i18n.options.supportedLngs)) {
-      const allLangs = i18n.options.supportedLngs.filter((i) => i !== "cimode")
+      const allLangs = i18n.options.supportedLngs.filter(
+        (i) => i !== "cimode"
+      ) as string[]
       const currentLang = i18n.language
       const nextLang =
         allLangs[(allLangs.indexOf(currentLang) + 1) % allLangs.length]
-      i18n.changeLanguage(nextLang)
+      i18n.changeLanguage(nextLang).catch((e) => console.error(e))
       window.localStorage.setItem("i18currentLang", nextLang)
     }
   }

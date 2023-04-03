@@ -18,7 +18,7 @@ function TodoCard() {
   const { id } = useParams()
   return (
     <div className="mt-8 flex justify-center">
-      <Card title={"TODO " + id} className="w-80">
+      <Card title={`TODO ${id ?? ""}`} className="w-80">
         <TodoTitle todoId={Number(id)} />
       </Card>
     </div>
