@@ -14,6 +14,7 @@ import { useDark } from "@/hooks"
 import Home from "@/pages"
 import TodoList from "@/pages/example/todos"
 import TodoCard from "@/pages/example/todos/[id]"
+import Login from "@/pages/login"
 
 const i18nToLocale = {
   en: enUS,
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Home />,
+  },
+  {
+    path: "/login",
+    element: <Login />,
   },
   {
     path: "/example/todos/",
