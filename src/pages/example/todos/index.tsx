@@ -1,7 +1,6 @@
+import { todoListAtom, userIdAtom } from "@/state/todo"
 import { Table } from "antd"
-import { useState } from "react"
-
-import { useTodoList } from "@/network/useTodo"
+import { useAtom } from "jotai"
 
 const columns = [
   {
@@ -20,8 +19,8 @@ const columns = [
 ]
 
 function TodoTable() {
-  const [current, setCurrent] = useState(1)
-  const { todos, isLoading, error } = useTodoList(current)
+  const [current, setCurrent] = useAtom(userIdAtom)
+  const [{ data: todos, isLoading, error }] = useAtom(todoListAtom)
 
   if (error) return <div>Error: {(error as Error).message}</div>
   return (

@@ -1,10 +1,9 @@
+import { todoAtom } from "@/state/todo"
 import { Card } from "antd"
-import { useParams } from "react-router"
+import { useAtom } from "jotai"
 
-import { useTodo } from "@/network/useTodo"
-
-function TodoTitle({ todoId }: { todoId: number }) {
-  const { todo, isLoading, error } = useTodo(todoId)
+function TodoTitle() {
+  const [{ data: todo, isLoading, error }] = useAtom(todoAtom)
   if (isLoading) return <div>Loading...</div>
   if (error) return <div>Error</div>
   return (
@@ -15,11 +14,12 @@ function TodoTitle({ todoId }: { todoId: number }) {
 }
 
 function TodoCard() {
-  const { id } = useParams()
+  const [{ data: todo }] = useAtom(todoAtom)
+
   return (
     <div className="mt-8 flex justify-center">
-      <Card title={`TODO ${id ?? ""}`} className="w-80">
-        <TodoTitle todoId={Number(id)} />
+      <Card title={`TODO ${todo?.id ?? ""}`} className="w-80">
+        <TodoTitle />
       </Card>
     </div>
   )

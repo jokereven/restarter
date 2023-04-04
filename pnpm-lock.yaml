@@ -21,6 +21,8 @@ specifiers:
   eslint-plugin-react-refresh: ^0.3.4
   i18next: ^22.4.14
   jotai: ^2.0.3
+  jotai-location: ^0.5.1
+  jotai-tanstack-query: ^0.7.0
   pnpm: ^7.29.1
   postcss: ^8.4.21
   prettier: ^2.8.7
@@ -45,6 +47,8 @@ dependencies:
   clsx: 1.2.1
   i18next: 22.4.14
   jotai: 2.0.3_react@18.2.0
+  jotai-location: 0.5.1_jotai@2.0.3
+  jotai-tanstack-query: 0.7.0_jotai@2.0.3
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
   react-i18next: 12.2.0_57ubdvajp6562okxygabugvlve
@@ -4336,6 +4340,23 @@ packages:
   /jiti/1.18.2:
     resolution: {integrity: sha512-QAdOptna2NYiSSpv0O/BwoHBSmz4YhpzJHyi+fnMRTXFjp7B8i/YG5Z8IfusxB1ufjcD2Sre1F3R+nX3fvy7gg==}
     hasBin: true
+
+  /jotai-location/0.5.1_jotai@2.0.3:
+    resolution: {integrity: sha512-6b34X6PpUaXmHCcyxdMFUHgRLUEp+SFHq9UxHbg5HxHC1LddVyVZbPJI+P15+SOQJcUTH3KrsIeKmeLko+Vw/A==}
+    peerDependencies:
+      jotai: '>=1.11.0'
+    dependencies:
+      jotai: 2.0.3_react@18.2.0
+    dev: false
+
+  /jotai-tanstack-query/0.7.0_jotai@2.0.3:
+    resolution: {integrity: sha512-/fzDgMDmJYHYCHHCfWtcHJCiNkxiLJazIza4FEyXptGIDIEVDHvmt8TWmHBbbqgXLkQOjJEWb2HwUIwmATyAew==}
+    peerDependencies:
+      '@tanstack/query-core': '*'
+      jotai: '>=1.11.0'
+    dependencies:
+      jotai: 2.0.3_react@18.2.0
+    dev: false
 
   /jotai/2.0.3_react@18.2.0:
     resolution: {integrity: sha512-MMjhSPAL3RoeZD9WbObufRT2quThEAEknHHridf2ma8Ml7ZVQmUiHk0ssdbR3F0h3kcwhYqSGJ59OjhPge7RRg==}
