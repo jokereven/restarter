@@ -17,6 +17,7 @@ import {
 } from "react-router-dom"
 
 import SidebarNav from "@/components/SidebarNav"
+import UserHeader from "@/components/UserHeader"
 import { useDark } from "@/hooks"
 import Home from "@/pages"
 import TodoList from "@/pages/example/todos"
@@ -56,8 +57,11 @@ const router = createBrowserRouter([
     element: (
       <div className="h-full flex">
         <SidebarNav />
-        <div className="w-full h-full overflow-y-scroll">
-          <Outlet />
+        <div className="w-full bg-gray">
+          <UserHeader />
+          <div className="overflow-y-auto h-[calc(100%-56px)]">
+            <Outlet />
+          </div>
         </div>
       </div>
     ),
