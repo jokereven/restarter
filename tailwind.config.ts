@@ -9,7 +9,7 @@ export default {
       colors: {
         yellow: "#F0AB00",
         black: "#001529",
-        gray: "#9B9B9B",
+        gray: "#F4F4F4",
         white: "#FFFFFF",
       },
       dropShadow: {

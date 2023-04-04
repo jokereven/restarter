@@ -217,10 +217,10 @@ select {
 2. Remove default button styles.
 */
 
-button,
-[type="button"],
-[type="reset"],
-[type="submit"] {
+button:not(.ant-btn-primary),
+[type="button"]:not(.ant-btn-primary),
+[type="reset"]:not(.ant-btn-primary),
+[type="submit"]:not(.ant-btn-primary) {
   -webkit-appearance: button; /* 1 */
   background-color: transparent; /* 2 */
   background-image: none; /* 2 */
