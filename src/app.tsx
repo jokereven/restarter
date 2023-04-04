@@ -38,6 +38,13 @@ const router = createBrowserRouter([
     element: <Login />,
   },
   {
+    path: "/logout",
+    loader: () => {
+      window.localStorage.removeItem("auth-token")
+      return redirect("/")
+    },
+  },
+  {
     path: "/example/todos/",
     element: (
       <div className="h-full flex">

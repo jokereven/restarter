@@ -70,6 +70,11 @@ const items: MenuItem[] = [
     key: "disabled-item",
     disabled: true,
   }),
+  menu({
+    label: "安全退出",
+    key: "/logout",
+    icon: <div className="i-carbon-logout"></div>,
+  }),
 ]
 
 console.log(items)
