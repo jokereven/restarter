@@ -35,6 +35,13 @@ const router = createBrowserRouter([
   },
   {
     path: "/login",
+    loader: () => {
+      const token = window.localStorage.getItem("auth-token")
+      if (token) {
+        return redirect("/example/todos")
+      }
+      return null
+    },
     element: <Login />,
   },
   {
