@@ -7,28 +7,72 @@ import "./menu.css"
 
 type MenuItem = Required<MenuProps>["items"][number]
 
-function menu(
-  label: React.ReactNode,
-  key: string,
-  icon?: React.ReactNode,
-  children?: MenuItem[],
+function menu(props: {
+  label: React.ReactNode
+  key: string
+  icon?: React.ReactNode
+  children?: MenuItem[]
   type?: "group"
-): MenuItem {
+  disabled?: boolean
+}): MenuItem {
   return {
-    key,
-    icon,
-    children,
-    label: <Link to={key}>{label}</Link>,
-    type,
+    key: props.key,
+    icon: props.icon,
+    children: props.children?.map((child) => {
+      if (props.disabled) {
+        return {
+          ...child,
+          disabled: true,
+        }
+      }
+      return child
+    }),
+    label: props.disabled ? (
+      props.label
+    ) : (
+      <Link to={props.key}>{props.label}</Link>
+    ),
+    type: props.type,
+    disabled: props.disabled,
   } as MenuItem
 }
 
 const items: MenuItem[] = [
-  menu("TODO", "todo", <div className="i-mdi-calendar-today-outline"></div>, [
-    menu("Item 1", "/example/todos/1"),
-    menu("List", "/example/todos/"),
-  ]),
+  menu({
+    label: "TODO",
+    key: "todo",
+    icon: <div className="i-mdi-calendar-today-outline"></div>,
+    children: [
+      menu({
+        label: "Item 1",
+        key: "/example/todos/1",
+      }),
+      menu({
+        label: "List",
+        key: "/example/todos/",
+      }),
+    ],
+  }),
+  menu({
+    label: "禁用的导航组",
+    key: "disabled",
+    icon: <div className="i-mdi-calendar-today-outline"></div>,
+    disabled: true,
+    children: [
+      menu({
+        label: "禁用的导航项",
+        key: "/xxxxx",
+      }),
+    ],
+  }),
+  menu({
+    label: "禁用的导航项",
+    key: "disabled-item",
+    disabled: true,
+  }),
 ]
+
+console.log(items)
 
 export default function SidebarNav() {
   const location = useLocation()
@@ -40,6 +84,7 @@ export default function SidebarNav() {
       <Menu
         onClick={(e) => setCurrent(e.key)}
         selectedKeys={[current]}
+        theme="dark"
         mode="inline"
         items={items}
         defaultOpenKeys={["todo"]}
