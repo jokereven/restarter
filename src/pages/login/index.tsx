@@ -1,4 +1,4 @@
-import Header from "@/components/Header"
+import CommonHeader from "@/components/CommonHeader"
 import { Button, Checkbox, Input } from "antd"
 import { useRef } from "react"
 import { useNavigate } from "react-router"
@@ -31,7 +31,7 @@ export default function Login() {
   return (
     <div className="min-h-screen flex justify-center items-center bg-gray">
       <div className="max-w-2xl mx-auto flex flex-col gap-6">
-        <Header size={"lg"} className="mb-14" />
+        <CommonHeader size={"lg"} className="mb-14" />
         <div className="flex gap-4 self-start">
           <button className="text-yellow border-b border-yellow pb-2">
             邮箱密码登录

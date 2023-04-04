@@ -44,7 +44,7 @@ export interface HeaderProps
   className?: string
 }
 
-export default function Header({ className, size }: HeaderProps) {
+export default function CommonHeader({ className, size }: HeaderProps) {
   return (
     <div className={`flex flex-col items-center my-4 gap-4 ${className ?? ""}`}>
       <div className="flex items-center gap-2">

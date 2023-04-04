@@ -1,4 +1,4 @@
-import Header from "@/components/Header"
+import CommonHeader from "@/components/CommonHeader"
 import type { MenuProps } from "antd"
 import { Menu } from "antd"
 import { useState } from "react"
@@ -85,7 +85,7 @@ export default function SidebarNav() {
 
   return (
     <div className="h-full w-64 hidden md:block bg-black">
-      <Header className="text-white" />
+      <CommonHeader className="text-white" />
       <Menu
         onClick={(e) => setCurrent(e.key)}
         selectedKeys={[current]}
