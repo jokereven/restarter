@@ -9,7 +9,12 @@ import { ConfigProvider, theme } from "antd"
 import enUS from "antd/locale/en_US"
 import zhCN from "antd/locale/zh_CN"
 import { useTranslation } from "react-i18next"
-import { Outlet, RouterProvider, createBrowserRouter } from "react-router-dom"
+import {
+  Outlet,
+  RouterProvider,
+  createBrowserRouter,
+  redirect,
+} from "react-router-dom"
 
 import SidebarNav from "@/components/SidebarNav"
 import { useDark } from "@/hooks"
@@ -42,6 +47,13 @@ const router = createBrowserRouter([
         </div>
       </div>
     ),
+    loader: () => {
+      const token = window.localStorage.getItem("auth-token")
+      if (!token) {
+        return redirect("/login")
+      }
+      return null
+    },
     children: [
       {
         path: "",
