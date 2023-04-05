@@ -1,5 +1,3 @@
-import "@/reset.css"
-
 import "@/locales/i18n"
 import "@/main.css"
 import "@total-typescript/ts-reset"

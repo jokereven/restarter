@@ -67,7 +67,7 @@ export default function Login() {
         </div>
         <Button
           type="primary"
-          className="!py-2 !h-[40px] rounded-sm"
+          className="!py-2 !h-[40px] rounded-sm bg-yellow"
           onClick={handleLogin}
           onSubmit={handleLogin}
         >
