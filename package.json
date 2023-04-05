@@ -10,9 +10,9 @@
     "format": "prettier --write .",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "dep:up": "taze -rw latest --exclude pnpm && pnpm install"
+    "dep:up": "taze -rw latest && pnpm install"
   },
-  "packageManager": "pnpm@7.23.0",
+  "packageManager": "pnpm@8.1.1",
   "dependencies": {
     "@tanstack/react-query": "^4.28.0",
     "@total-typescript/ts-reset": "^0.4.2",
@@ -29,7 +29,7 @@
     "react-router": "^6.10.0",
     "react-router-dom": "^6.10.0",
     "react-use": "^17.4.0",
-    "tailwind-merge": "^1.11.0",
+    "tailwind-merge": "^1.12.0",
     "tailwindcss-animate": "^1.0.5"
   },
   "devDependencies": {
@@ -37,16 +37,15 @@
     "@iconify-json/carbon": "^1.1.16",
     "@iconify-json/mdi": "^1.1.50",
     "@types/node": "^18.15.11",
-    "@types/react": "^18.0.32",
+    "@types/react": "^18.0.33",
     "@types/react-dom": "^18.0.11",
-    "@typescript-eslint/eslint-plugin": "^5.57.0",
-    "@typescript-eslint/parser": "^5.57.0",
+    "@typescript-eslint/eslint-plugin": "^5.57.1",
+    "@typescript-eslint/parser": "^5.57.1",
     "@vitejs/plugin-react-swc": "^3.2.0",
     "autoprefixer": "^10.4.14",
     "eslint": "^8.37.0",
     "eslint-config-react-app": "^7.0.1",
     "eslint-plugin-react-refresh": "^0.3.4",
-    "pnpm": "^7.29.1",
     "postcss": "^8.4.21",
     "prettier": "^2.8.7",
     "tailwindcss": "^3.3.1",
