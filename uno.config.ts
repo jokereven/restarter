@@ -1,6 +1,13 @@
-// https://unocss.dev/integrations/vite
-import { defineConfig } from "unocss"
+// https://unocss.dev
+import {
+	defineConfig,
+	presetIcons,
+	presetUno,
+	transformerDirectives,
+	transformerVariantGroup,
+} from "unocss"
 
 export default defineConfig({
-	// ...UnoCSS options
+	presets: [presetUno(), presetIcons()],
+	transformers: [transformerVariantGroup(), transformerDirectives()],
 })
