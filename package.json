@@ -12,7 +12,11 @@
 		"lint": "eslint . --fix"
 	},
 	"dependencies": {
+		"@tanstack/query-core": "^4.29.1",
 		"@unocss/reset": "^0.51.4",
+		"jotai": "^2.0.4",
+		"jotai-tanstack-query": "^0.7.0",
+		"ky": "^0.33.3",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0"
 	},
