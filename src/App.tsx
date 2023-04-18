@@ -1,4 +1,4 @@
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import { Avatar, AvatarFallback } from "@/components/ui/avatar"
 import { User } from "./type"
 
 import { Getter, atom, useAtom } from "jotai"
@@ -25,7 +25,6 @@ export default function App() {
 		<div className="h-full flex flex-col gap-4 items-center justify-center">
 			<h1>{data?.name}</h1>
 			<Avatar>
-				<AvatarImage src={"https://via.placeholder.com/150"} />
 				<AvatarFallback>{data.name.slice(0, 2)}</AvatarFallback>
 			</Avatar>
 		</div>

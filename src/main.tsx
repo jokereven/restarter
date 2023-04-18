@@ -1,5 +1,6 @@
 import "@unocss/reset/tailwind-compat.css"
 import "virtual:uno.css"
+import "./styles/globals.css"
 
 import React from "react"
 import ReactDOM from "react-dom/client"
