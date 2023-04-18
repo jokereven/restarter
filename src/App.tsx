@@ -96,7 +96,7 @@ export default function App() {
 										<CardTitle>Loading...</CardTitle>
 									</CardHeader>
 									<CardContent>
-										<div className="rounded-md overflow-clip bg-gray-200 h-[150px] w-[150px]"></div>
+										<div className="rounded-md overflow-clip bg-card-foreground h-[150px] w-[150px] animate-pulse"></div>
 									</CardContent>
 								</Card>
 							))}
