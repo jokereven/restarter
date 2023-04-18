@@ -8,7 +8,12 @@ import {
 } from "unocss"
 
 export default defineConfig({
-	presets: [presetUno(), presetIcons()],
+	presets: [
+		presetUno(),
+		presetIcons({
+			scale: 1.4,
+		}),
+	],
 	transformers: [transformerVariantGroup(), transformerDirectives()],
 	theme: {
 		colors: {

@@ -1,9 +1,9 @@
+import AppearanceSwitch from "@/components/part/appearance-switch"
 import { Avatar, AvatarFallback } from "@/components/ui/avatar"
-import { User } from "./type"
-
 import { Getter, atom, useAtom } from "jotai"
 import { atomsWithQuery } from "jotai-tanstack-query"
 import originalKy from "ky"
+import { User } from "./type"
 
 const ky = originalKy.extend({
 	prefixUrl: "https://jsonplaceholder.typicode.com",
@@ -27,6 +27,7 @@ export default function App() {
 			<Avatar>
 				<AvatarFallback>{data.name.slice(0, 2)}</AvatarFallback>
 			</Avatar>
+			<AppearanceSwitch />
 		</div>
 	)
 }
