@@ -20,7 +20,7 @@ export const [albumAtom] = atomsWithQuery((get: Getter) => ({
 	queryKey: ["users", get(idAtom)] as const,
 	queryFn: async ({ queryKey: [, id] }) => {
 		const res = await ky.get(`albums/${id}`)
-		await new Promise((r) => setTimeout(r, 2000))
+		await new Promise((r) => setTimeout(r, 1000))
 		return res.json<Album>()
 	},
 }))
@@ -29,7 +29,7 @@ export const [photosAtom] = atomsWithQuery((get: Getter) => ({
 	queryKey: ["photos", get(idAtom)] as const,
 	queryFn: async ({ queryKey: [, id] }) => {
 		const res = await ky.get(`albums/${id}/photos`)
-		await new Promise((r) => setTimeout(r, 2000))
+		await new Promise((r) => setTimeout(r, 1000))
 		return res.json<Photo[]>()
 	},
 }))

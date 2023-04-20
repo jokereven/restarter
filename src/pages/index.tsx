@@ -1,9 +1,9 @@
 import AppearanceSwitch from "@/components/part/appearance-switch"
 import LanguageSwitch from "@/components/part/language-switch"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Card, CardTitle, SelectedCard } from "@/components/ui/card"
 import { albumAtom, incAndDecAtom, photosAtom } from "@/state/demo"
 import { useAtom } from "jotai"
-import { Suspense } from "react"
+import { Fragment, Suspense } from "react"
 import { useTranslation } from "react-i18next"
 
 function Controller() {
@@ -23,22 +23,36 @@ function Controller() {
 
 function Photos() {
 	const [photos] = useAtom(photosAtom)
+	const photoSet = photos
+		.filter((photo, index) => {
+			return (
+				index ===
+				photos.findIndex((obj) => {
+					return obj.id === photo.id && obj.albumId === photo.albumId
+				})
+			)
+		})
+		.slice(0, 9)
+
 	return (
 		<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-3xl">
-			{photos?.slice(0, 6).map((photo) => (
-				<Card key={photo.id} className="h-[320px] w-[240px]">
-					<CardHeader>
-						<CardTitle>{photo.title}</CardTitle>
-					</CardHeader>
-					<CardContent>
-						<img
-							src={photo.thumbnailUrl}
-							alt={photo.title}
-							className="rounded-md overflow-clip"
-						></img>
-					</CardContent>
-				</Card>
-			))}
+			{photoSet.map((photo) => {
+				const uniqueId = `${photo.id}-${photo.albumId}`
+				return (
+					<Fragment key={uniqueId}>
+						<Card id={uniqueId}>
+							<CardTitle>{photo.title}</CardTitle>
+						</Card>
+						<SelectedCard id={uniqueId} className="w-80 h-60">
+							<img
+								src={photo.thumbnailUrl}
+								alt={photo.title}
+								className="w-full h-full object-cover"
+							></img>
+						</SelectedCard>
+					</Fragment>
+				)
+			})}
 		</div>
 	)
 }
@@ -58,22 +72,7 @@ export default function App() {
 			</Suspense>
 			<Controller />
 			<div>
-				<Suspense
-					fallback={
-						<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-3xl">
-							{Array.from({ length: 6 }).map((_, index) => (
-								<Card key={index} className="h-[320px] w-[240px]">
-									<CardHeader>
-										<CardTitle>Loading...</CardTitle>
-									</CardHeader>
-									<CardContent>
-										<div className="rounded-md overflow-clip bg-card-foreground h-[150px] w-[150px] animate-pulse"></div>
-									</CardContent>
-								</Card>
-							))}
-						</div>
-					}
-				>
+				<Suspense fallback={"loading..."}>
 					<Photos />
 				</Suspense>
 			</div>
