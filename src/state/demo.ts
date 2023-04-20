@@ -25,7 +25,7 @@ export const [albumAtom] = atomsWithQuery((get: Getter) => ({
 	},
 }))
 
-export const [photosAtom] = atomsWithQuery((get: Getter) => ({
+export const [, photosStateAtom] = atomsWithQuery((get: Getter) => ({
 	queryKey: ["photos", get(idAtom)] as const,
 	queryFn: async ({ queryKey: [, id] }) => {
 		const res = await ky.get(`albums/${id}/photos`)

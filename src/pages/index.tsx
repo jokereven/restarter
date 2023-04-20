@@ -1,7 +1,7 @@
 import AppearanceSwitch from "@/components/part/appearance-switch"
 import LanguageSwitch from "@/components/part/language-switch"
 import { Card, CardTitle, SelectedCard } from "@/components/ui/card"
-import { albumAtom, incAndDecAtom, photosAtom } from "@/state/demo"
+import { albumAtom, incAndDecAtom, photosStateAtom } from "@/state/demo"
 import { useAtom } from "jotai"
 import { Fragment, Suspense } from "react"
 import { useTranslation } from "react-i18next"
@@ -10,24 +10,49 @@ function Controller() {
 	const [id, setId] = useAtom(incAndDecAtom)
 	return (
 		<div className="flex items-center gap-2">
-			<button onClick={() => setId("dec")}>
-				<div className="i-carbon-arrow-left"></div>
-			</button>
+			{id > 1 && (
+				<button onClick={() => setId("dec")}>
+					<div className="i-carbon-arrow-left"></div>
+				</button>
+			)}
 			<span>{id}</span>
-			<button onClick={() => setId("inc")}>
-				<div className="i-carbon-arrow-right"></div>
-			</button>
+			{id < 10 && (
+				<button onClick={() => setId("inc")}>
+					<div className="i-carbon-arrow-right"></div>
+				</button>
+			)}
 		</div>
 	)
 }
 
 function Photos() {
-	const [photos] = useAtom(photosAtom)
-	const photoSet = photos
+	const [photos] = useAtom(photosStateAtom)
+
+	if (!photos.data) {
+		return (
+			<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-3xl">
+				{Array.from({ length: 9 }).map((_v, index) => {
+					const uniqueId = `${index}`
+					return (
+						<Fragment key={uniqueId}>
+							<Card id={uniqueId}>
+								<CardTitle className="flex items-center gap-2">
+									{"Loading... "}
+									<div className="i-carbon-circle-dash animate-spin"></div>
+								</CardTitle>
+							</Card>
+						</Fragment>
+					)
+				})}
+			</div>
+		)
+	}
+
+	const photoSet = photos.data
 		.filter((photo, index) => {
 			return (
 				index ===
-				photos.findIndex((obj) => {
+				photos.data.findIndex((obj) => {
 					return obj.id === photo.id && obj.albumId === photo.albumId
 				})
 			)
@@ -36,8 +61,8 @@ function Photos() {
 
 	return (
 		<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-3xl">
-			{photoSet.map((photo) => {
-				const uniqueId = `${photo.id}-${photo.albumId}`
+			{photoSet.map((photo, index) => {
+				const uniqueId = `${index}`
 				return (
 					<Fragment key={uniqueId}>
 						<Card id={uniqueId}>
@@ -64,7 +89,6 @@ function AlbumInfo() {
 
 export default function App() {
 	const { t } = useTranslation()
-	const [id] = useAtom(incAndDecAtom)
 
 	return (
 		<div className="h-full overflow-auto flex flex-col gap-4 items-center justify-center font-mono">
@@ -74,27 +98,7 @@ export default function App() {
 			</Suspense>
 			<Controller />
 			<div>
-				<Suspense
-					fallback={
-						<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-3xl">
-							{Array.from({ length: 9 }).map((_v, index) => {
-								const uniqueId = `${index + 1}-${id}`
-								return (
-									<Fragment key={uniqueId}>
-										<Card id={uniqueId}>
-											<CardTitle className="flex items-center gap-2">
-												Loading...
-												<div className="i-carbon-circle-dash animate-spin"></div>
-											</CardTitle>
-										</Card>
-									</Fragment>
-								)
-							})}
-						</div>
-					}
-				>
-					<Photos />
-				</Suspense>
+				<Photos />
 			</div>
 			<div className="flex gap-4 items-center">
 				<AppearanceSwitch />
