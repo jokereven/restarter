@@ -1,41 +1,8 @@
 import AppearanceSwitch from "@/components/part/appearance-switch"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Getter, atom, useAtom } from "jotai"
-import { atomsWithQuery } from "jotai-tanstack-query"
-import originalKy from "ky"
+import { albumAtom, incAndDecAtom, photosAtom } from "@/state/demo"
+import { useAtom } from "jotai"
 import { Suspense } from "react"
-import { Album, Photo } from "../type"
-
-const ky = originalKy.extend({
-	prefixUrl: "https://jsonplaceholder.typicode.com",
-})
-
-const idAtom = atom(1)
-
-const incAndDecAtom = atom(
-	(get) => get(idAtom),
-	(_get, set, action: "inc" | "dec") => {
-		set(idAtom, (pre) => (action === "inc" ? pre + 1 : pre - 1))
-	}
-)
-
-const [albumAtom] = atomsWithQuery((get: Getter) => ({
-	queryKey: ["users", get(idAtom)] as const,
-	queryFn: async ({ queryKey: [, id] }) => {
-		const res = await ky.get(`albums/${id}`)
-		await new Promise((r) => setTimeout(r, 2000))
-		return res.json<Album>()
-	},
-}))
-
-const [photosAtom] = atomsWithQuery((get: Getter) => ({
-	queryKey: ["photos", get(idAtom)] as const,
-	queryFn: async ({ queryKey: [, id] }) => {
-		const res = await ky.get(`albums/${id}/photos`)
-		await new Promise((r) => setTimeout(r, 2000))
-		return res.json<Photo[]>()
-	},
-}))
 
 function Controller() {
 	const [id, setId] = useAtom(incAndDecAtom)
