@@ -24,7 +24,6 @@ function Card({
 			)}
 			layoutId={id}
 			onClick={() => {
-				console.log(id)
 				setSelectedId(id)
 			}}
 		>
