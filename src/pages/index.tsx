@@ -64,6 +64,8 @@ function AlbumInfo() {
 
 export default function App() {
 	const { t } = useTranslation()
+	const [id] = useAtom(incAndDecAtom)
+
 	return (
 		<div className="h-full overflow-auto flex flex-col gap-4 items-center justify-center font-mono">
 			<h1>{t("hello-world")}</h1>
@@ -72,7 +74,25 @@ export default function App() {
 			</Suspense>
 			<Controller />
 			<div>
-				<Suspense fallback={"loading..."}>
+				<Suspense
+					fallback={
+						<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-3xl">
+							{Array.from({ length: 9 }).map((_v, index) => {
+								const uniqueId = `${index + 1}-${id}`
+								return (
+									<Fragment key={uniqueId}>
+										<Card id={uniqueId}>
+											<CardTitle className="flex items-center gap-2">
+												Loading...
+												<div className="i-carbon-circle-dash animate-spin"></div>
+											</CardTitle>
+										</Card>
+									</Fragment>
+								)
+							})}
+						</div>
+					}
+				>
 					<Photos />
 				</Suspense>
 			</div>
