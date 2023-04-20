@@ -1,8 +1,10 @@
 import AppearanceSwitch from "@/components/part/appearance-switch"
+import LanguageSwitch from "@/components/part/language-switch"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { albumAtom, incAndDecAtom, photosAtom } from "@/state/demo"
 import { useAtom } from "jotai"
 import { Suspense } from "react"
+import { useTranslation } from "react-i18next"
 
 function Controller() {
 	const [id, setId] = useAtom(incAndDecAtom)
@@ -22,7 +24,7 @@ function Controller() {
 function Photos() {
 	const [photos] = useAtom(photosAtom)
 	return (
-		<div className="grid grid-cols-3 gap-6 max-w-3xl">
+		<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-3xl">
 			{photos?.slice(0, 6).map((photo) => (
 				<Card key={photo.id} className="h-[320px] w-[240px]">
 					<CardHeader>
@@ -47,8 +49,10 @@ function AlbumInfo() {
 }
 
 export default function App() {
+	const { t } = useTranslation()
 	return (
 		<div className="h-full overflow-auto flex flex-col gap-4 items-center justify-center font-mono">
+			<h1>{t("hello-world")}</h1>
 			<Suspense fallback="loading...">
 				<AlbumInfo />
 			</Suspense>
@@ -56,7 +60,7 @@ export default function App() {
 			<div>
 				<Suspense
 					fallback={
-						<div className="grid grid-cols-3 gap-6 max-w-3xl">
+						<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-3xl">
 							{Array.from({ length: 6 }).map((_, index) => (
 								<Card key={index} className="h-[320px] w-[240px]">
 									<CardHeader>
@@ -73,7 +77,10 @@ export default function App() {
 					<Photos />
 				</Suspense>
 			</div>
-			<AppearanceSwitch />
+			<div className="flex gap-4 items-center">
+				<AppearanceSwitch />
+				<LanguageSwitch />
+			</div>
 		</div>
 	)
 }
