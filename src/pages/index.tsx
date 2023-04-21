@@ -91,15 +91,13 @@ export default function App() {
 	const { t } = useTranslation()
 
 	return (
-		<div className="h-full overflow-auto flex flex-col gap-4 items-center justify-center font-mono">
+		<div className="p-4 flex flex-col gap-4 items-center justify-center font-mono">
 			<h1>{t("hello-world")}</h1>
 			<Suspense fallback="loading...">
 				<AlbumInfo />
 			</Suspense>
 			<Controller />
-			<div>
-				<Photos />
-			</div>
+			<Photos />
 			<div className="flex gap-4 items-center">
 				<AppearanceSwitch />
 				<LanguageSwitch />
