@@ -1,7 +1,7 @@
 import AppearanceSwitch from "@/components/part/appearance-switch"
 import LanguageSwitch from "@/components/part/language-switch"
 import { Card, CardTitle, SelectedCard } from "@/components/ui/card"
-import { albumAtom, incAndDecAtom, photosStateAtom } from "@/state/demo"
+import { incAndDecAtom, useAlbum, usePhotos } from "@/state/demo"
 import { useAtom } from "jotai"
 import { Fragment, Suspense } from "react"
 import { useTranslation } from "react-i18next"
@@ -26,9 +26,9 @@ function Controller() {
 }
 
 function Photos() {
-	const [photos] = useAtom(photosStateAtom)
+	const { data: photos } = usePhotos()
 
-	if (!photos.data) {
+	if (!photos) {
 		return (
 			<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-3xl">
 				{Array.from({ length: 9 }).map((_v, index) => {
@@ -48,11 +48,11 @@ function Photos() {
 		)
 	}
 
-	const photoSet = photos.data
+	const photoSet = photos
 		.filter((photo, index) => {
 			return (
 				index ===
-				photos.data.findIndex((obj) => {
+				photos.findIndex((obj) => {
 					return obj.id === photo.id && obj.albumId === photo.albumId
 				})
 			)
@@ -83,7 +83,7 @@ function Photos() {
 }
 
 function AlbumInfo() {
-	const [album] = useAtom(albumAtom)
+	const { data: album } = useAlbum()
 	return <h1>{album?.title}</h1>
 }
 

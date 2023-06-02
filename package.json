@@ -11,21 +11,18 @@
 		"lint": "eslint . --fix"
 	},
 	"dependencies": {
-		"@radix-ui/react-avatar": "^1.0.3",
-		"@tanstack/query-core": "^4.29.11",
 		"@unocss/reset": "^0.52.7",
 		"class-variance-authority": "^0.6.0",
 		"clsx": "^1.2.1",
 		"framer-motion": "^10.12.16",
 		"i18next": "^22.5.0",
 		"jotai": "^2.1.0",
-		"jotai-tanstack-query": "^0.7.1",
-		"ky": "^0.33.3",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",
 		"react-i18next": "^12.3.1",
 		"react-router-dom": "^6.11.2",
 		"react-use": "^17.4.0",
+		"swr": "^2.1.5",
 		"tailwind-merge": "^1.13.0"
 	},
 	"devDependencies": {

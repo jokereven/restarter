@@ -1,11 +1,10 @@
-import { Getter, atom } from "jotai"
-import { atomsWithQuery } from "jotai-tanstack-query"
-import originalKy from "ky"
-import { Album, Photo } from "../type"
+import { Album, Photo } from "@/type"
+import { atom, useAtomValue } from "jotai"
+import useSWR from "swr"
 
-const ky = originalKy.extend({
-	prefixUrl: "https://jsonplaceholder.typicode.com",
-})
+const prefixUrl = "https://jsonplaceholder.typicode.com"
+const fetcher = <T>(url: string) =>
+	fetch(prefixUrl + url).then((res) => res.json() as Promise<T>)
 
 const idAtom = atom(1)
 
@@ -16,20 +15,14 @@ export const incAndDecAtom = atom(
 	}
 )
 
-export const [albumAtom] = atomsWithQuery((get: Getter) => ({
-	queryKey: ["users", get(idAtom)] as const,
-	queryFn: async ({ queryKey: [, id] }) => {
-		const res = await ky.get(`albums/${id}`)
-		await new Promise((r) => setTimeout(r, 1000))
-		return res.json<Album>()
-	},
-}))
+export function useAlbum() {
+	const id = useAtomValue(idAtom)
+	return useSWR(["albums", id], ([, id]) => fetcher<Album>(`/albums/${id}`))
+}
 
-export const [, photosStateAtom] = atomsWithQuery((get: Getter) => ({
-	queryKey: ["photos", get(idAtom)] as const,
-	queryFn: async ({ queryKey: [, id] }) => {
-		const res = await ky.get(`albums/${id}/photos`)
-		await new Promise((r) => setTimeout(r, 1000))
-		return res.json<Photo[]>()
-	},
-}))
+export function usePhotos() {
+	const id = useAtomValue(idAtom)
+	return useSWR(["photos", id], ([, id]) =>
+		fetcher<Photo[]>(`/albums/${id}/photos`)
+	)
+}
