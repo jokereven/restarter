@@ -7,7 +7,7 @@ export default function TitleBar() {
 				WebkitAppRegion: "drag",
 			}}
 		>
-			Vite + React + TS
+			Restarter
 		</h1>
 	)
 }
