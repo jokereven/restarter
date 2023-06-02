@@ -19,6 +19,10 @@ export function useDark() {
 		} else {
 			document.documentElement.classList.toggle("dark", false)
 		}
+
+		if ((setting === "dark" && isDark) || (setting === "light" && !isDark)) {
+			setSetting("system")
+		}
 	}, [setting, isDark, setSetting])
 
 	const toggleDark = () => {
