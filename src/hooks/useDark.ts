@@ -3,10 +3,10 @@ import { atomWithStorage } from "jotai/utils"
 import { useEffect } from "react"
 import { useMedia } from "react-use"
 
-const appearanceAtom = atomWithStorage<"auto" | "light" | "dark">(
-	"use-dark",
-	"auto"
-)
+const themeOptions = ["system", "light", "dark"] as const
+export type Theme = (typeof themeOptions)[number]
+
+const appearanceAtom = atomWithStorage<Theme>("use-dark", "system")
 
 export function useDark() {
 	const [setting, setSetting] = useAtom(appearanceAtom)
@@ -19,16 +19,24 @@ export function useDark() {
 		} else {
 			document.documentElement.classList.toggle("dark", false)
 		}
-		if ((setting === "dark" && isDark) || (setting === "light" && !isDark)) {
-			setSetting("auto")
+		if (!window.electron) {
+			if ((setting === "dark" && isDark) || (setting === "light" && !isDark)) {
+				setSetting("system")
+			}
 		}
 	}, [setting, isDark, setSetting])
 
 	const toggleDark = () => {
-		if (setting === "auto") {
+		if (setting === "system") {
 			setSetting(isDark ? "light" : "dark")
 		} else {
-			setSetting("auto")
+			setSetting("system")
+		}
+
+		if (window.electron) {
+			window.electron.setTheme(
+				setting === "system" ? (isDark ? "light" : "dark") : "system"
+			)
 		}
 	}
 

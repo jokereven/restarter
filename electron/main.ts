@@ -1,4 +1,5 @@
-import { app, BrowserWindow } from "electron"
+import { Theme } from "@/hooks"
+import { app, BrowserWindow, ipcMain, nativeTheme } from "electron"
 import path from "node:path"
 
 // The built directory structure
@@ -24,8 +25,6 @@ function createWindow() {
 		icon: path.join(process.env.PUBLIC, "electron-vite.svg"),
 		webPreferences: {
 			preload: path.join(__dirname, "preload.js"),
-			nodeIntegration: true,
-			contextIsolation: false,
 		},
 		width: 1000,
 		height: 800,
@@ -42,6 +41,10 @@ function createWindow() {
 		// win.loadFile('dist/index.html')
 		win.loadFile(path.join(process.env.DIST, "index.html"))
 	}
+
+	ipcMain.handle("setTheme", (_, theme: Theme) => {
+		nativeTheme.themeSource = theme
+	})
 }
 
 app.on("window-all-closed", () => {
