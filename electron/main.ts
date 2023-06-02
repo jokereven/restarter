@@ -27,6 +27,8 @@ function createWindow() {
 			nodeIntegration: true,
 			contextIsolation: false,
 		},
+		width: 1000,
+		height: 800,
 	})
 
 	// Test active push message to Renderer-process.
