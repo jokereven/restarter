@@ -1,10 +1,3 @@
-import { Theme } from "@/hooks"
-import { contextBridge, ipcRenderer } from "electron"
-
-contextBridge.exposeInMainWorld("electron", {
-	setTheme: (theme: Theme) => ipcRenderer.invoke("setTheme", theme),
-})
-
 function domReady(
 	condition: DocumentReadyState[] = ["complete", "interactive"]
 ) {

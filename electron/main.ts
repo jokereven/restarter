@@ -1,5 +1,4 @@
-import { Theme } from "@/hooks"
-import { app, BrowserWindow, ipcMain, nativeTheme } from "electron"
+import { app, BrowserWindow } from "electron"
 import path from "node:path"
 
 // The built directory structure
@@ -28,6 +27,7 @@ function createWindow() {
 		},
 		width: 1000,
 		height: 800,
+		titleBarStyle: "hiddenInset",
 	})
 
 	if (VITE_DEV_SERVER_URL) {
@@ -36,10 +36,6 @@ function createWindow() {
 		// win.loadFile('dist/index.html')
 		void win.loadFile(path.join(process.env.DIST, "index.html"))
 	}
-
-	ipcMain.handle("setTheme", (_, theme: Theme) => {
-		nativeTheme.themeSource = theme
-	})
 }
 
 app.on("window-all-closed", () => {

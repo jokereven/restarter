@@ -19,11 +19,6 @@ export function useDark() {
 		} else {
 			document.documentElement.classList.toggle("dark", false)
 		}
-		if (!window.electron) {
-			if ((setting === "dark" && isDark) || (setting === "light" && !isDark)) {
-				setSetting("system")
-			}
-		}
 	}, [setting, isDark, setSetting])
 
 	const toggleDark = () => {
@@ -31,12 +26,6 @@ export function useDark() {
 			setSetting(isDark ? "light" : "dark")
 		} else {
 			setSetting("system")
-		}
-
-		if (window.electron) {
-			window.electron.setTheme(
-				setting === "system" ? (isDark ? "light" : "dark") : "system"
-			)
 		}
 	}
 
