@@ -36,10 +36,10 @@ function createWindow() {
 	})
 
 	if (VITE_DEV_SERVER_URL) {
-		win.loadURL(VITE_DEV_SERVER_URL)
+		void win.loadURL(VITE_DEV_SERVER_URL)
 	} else {
 		// win.loadFile('dist/index.html')
-		win.loadFile(path.join(process.env.DIST, "index.html"))
+		void win.loadFile(path.join(process.env.DIST, "index.html"))
 	}
 
 	ipcMain.handle("setTheme", (_, theme: Theme) => {
@@ -51,4 +51,4 @@ app.on("window-all-closed", () => {
 	app.quit()
 })
 
-app.whenReady().then(createWindow)
+void app.whenReady().then(createWindow)

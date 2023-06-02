@@ -10,6 +10,7 @@ lerna-debug.log*
 node_modules
 dist
 dist-ssr
+dist-electron
 *.local
 
 # Editor directories and files
@@ -22,4 +23,6 @@ dist-ssr
 *.sw?
 
 *.cjs
-*.ts
+*.mjs
+*.js
+*.config.ts

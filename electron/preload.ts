@@ -40,7 +40,7 @@ const safeDOM = {
  * https://projects.lukehaas.me/css-loaders
  * https://matejkustec.github.io/SpinThatShit
  */
-function useLoading() {
+function loading() {
 	const className = `loaders-css__square-spin`
 	const styleContent = `
 @keyframes square-spin {
@@ -78,11 +78,11 @@ function useLoading() {
 	oDiv.innerHTML = `<div class="${className}"><div></div></div>`
 
 	return {
-		appendLoading() {
+		appendLoading: () => {
 			safeDOM.append(document.head, oStyle)
 			safeDOM.append(document.body, oDiv)
 		},
-		removeLoading() {
+		removeLoading: () => {
 			safeDOM.remove(document.head, oStyle)
 			safeDOM.remove(document.body, oDiv)
 		},
@@ -91,11 +91,12 @@ function useLoading() {
 
 // ----------------------------------------------------------------------
 
-const { appendLoading, removeLoading } = useLoading()
-domReady().then(appendLoading)
+const { appendLoading, removeLoading } = loading()
+void domReady().then(appendLoading)
 
 window.onmessage = (ev) => {
+	// eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
 	ev.data.payload === "removeLoading" && removeLoading()
 }
 
-setTimeout(removeLoading, 4999)
+setTimeout(removeLoading, 2999)
