@@ -1,12 +1,15 @@
 import { useSyncExternalStore } from "react"
 
 export function useSystemDark() {
-	const isDark = useSyncExternalStore(subscribe, getSnapshot)
-	return isDark
+	return useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot)
 }
 
 function getSnapshot() {
 	return window.matchMedia("(prefers-color-scheme: dark)").matches
+}
+
+function getServerSnapshot() {
+	return false
 }
 
 function subscribe(callback: () => void) {
