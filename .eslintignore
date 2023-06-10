@@ -22,6 +22,8 @@ dist-electron
 *.sln
 *.sw?
 
+release
+
 *.cjs
 *.mjs
 *.js

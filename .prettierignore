@@ -22,5 +22,7 @@ dist-electron
 *.sln
 *.sw?
 
+release
+
 pnpm-lock.yaml
 electron-builder.json5
