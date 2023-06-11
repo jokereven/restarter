@@ -1,14 +1,14 @@
 module.exports = {
 	extends: [
 		"eslint:recommended",
-		"plugin:react/recommended",
-		"plugin:react/jsx-runtime",
-		"plugin:jsx-a11y/recommended",
-		"plugin:react-hooks/recommended",
 		"plugin:@typescript-eslint/recommended",
 		"plugin:@typescript-eslint/recommended-type-checked",
+		"plugin:jsx-a11y/recommended",
+		"plugin:react/recommended",
+		"plugin:react/jsx-runtime",
+		"plugin:react-hooks/recommended",
 	],
-	plugins: ["react", "@typescript-eslint", "react-refresh"],
+	plugins: ["@typescript-eslint", "react-refresh"],
 	parser: "@typescript-eslint/parser",
 	parserOptions: {
 		project: true,
@@ -21,7 +21,8 @@ module.exports = {
 		},
 	},
 	rules: {
-		"react-refresh/only-export-components": "warn",
 		"react/prop-types": "off",
+		"react-refresh/only-export-components": "warn",
+		"react/jsx-no-leaked-render": ["error", { validStrategies: ["coerce"] }],
 	},
 }

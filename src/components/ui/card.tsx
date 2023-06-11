@@ -44,7 +44,7 @@ function SelectedCard({
 	const [selectedId, setSelectedId] = useAtom(selectedIdAtom)
 	return (
 		<AnimatePresence>
-			{selectedId && selectedId === id && (
+			{!!selectedId && selectedId === id && (
 				<motion.button
 					className="fixed inset-0 z-10 flex items-center justify-center bg-black"
 					onClick={() => setSelectedId(null)}
@@ -84,4 +84,4 @@ const CardTitle = React.forwardRef<
 ))
 CardTitle.displayName = "CardTitle"
 
-export { Card, SelectedCard, CardTitle }
+export { Card, CardTitle, SelectedCard }
