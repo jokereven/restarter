@@ -21,8 +21,17 @@ module.exports = {
 		},
 	},
 	rules: {
-		"react/prop-types": "off",
-		"react-refresh/only-export-components": "warn",
+		// https://twitter.com/Brooooook_lyn/status/1666637274757595141
 		"react/jsx-no-leaked-render": ["error", { validStrategies: ["coerce"] }],
+		// https://vitejs.dev/guide/features.html#typescript
+		"@typescript-eslint/consistent-type-imports": "error",
+
+		"react/prop-types": "off",
+
+		// dev
+		"react-refresh/only-export-components": "warn",
+
+		// formatting
+		"react/jsx-curly-brace-presence": ["warn", "never"],
 	},
 }

@@ -1,4 +1,4 @@
-import { Album, Photo } from "@/type"
+import type { Album, Photo } from "@/type"
 import { atom, useAtomValue } from "jotai"
 import useSWR from "swr"
 
