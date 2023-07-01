@@ -1,6 +1,5 @@
 import react from "@vitejs/plugin-react-swc"
 import path from "node:path"
-import UnoCSS from "unocss/vite"
 import { defineConfig } from "vite"
 import electron from "vite-plugin-electron"
 import renderer from "vite-plugin-electron-renderer"
@@ -24,7 +23,6 @@ export default defineConfig({
 			},
 		]),
 		renderer(),
-		UnoCSS(),
 	],
 	resolve: {
 		alias: {
