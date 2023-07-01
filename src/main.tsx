@@ -1,8 +1,5 @@
-import "@unocss/reset/tailwind.css"
-import "virtual:uno.css"
-import "./styles/globals.css"
-
 import "./i18n"
+import "./styles/globals.css"
 
 import App from "@/App"
 import TitleBar from "@/components/part/title-bar"
