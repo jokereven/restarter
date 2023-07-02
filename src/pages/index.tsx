@@ -30,7 +30,7 @@ function Photos() {
 
 	if (!photos) {
 		return (
-			<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-3xl">
+			<div className="grid max-w-3xl grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3">
 				{Array.from({ length: 9 }).map((_v, index) => {
 					const uniqueId = `${index}`
 					return (
@@ -60,7 +60,7 @@ function Photos() {
 		.slice(0, 9)
 
 	return (
-		<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-3xl">
+		<div className="grid max-w-3xl grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3">
 			{photoSet.map((photo, index) => {
 				const uniqueId = `${index}`
 				return (
@@ -68,11 +68,11 @@ function Photos() {
 						<Card id={uniqueId}>
 							<CardTitle>{photo.title}</CardTitle>
 						</Card>
-						<SelectedCard id={uniqueId} className="w-80 h-60">
+						<SelectedCard id={uniqueId} className="h-60 w-80">
 							<img
 								src={photo.thumbnailUrl}
 								alt={photo.title}
-								className="w-full h-full object-cover"
+								className="h-full w-full object-cover"
 							></img>
 						</SelectedCard>
 					</Fragment>
@@ -91,14 +91,14 @@ export default function App() {
 	const { t } = useTranslation()
 
 	return (
-		<div className="p-4 flex flex-col gap-4 items-center justify-center font-mono">
+		<div className="flex flex-col items-center justify-center gap-4 p-4 font-mono">
 			<h1>{t("hello-world")}</h1>
 			<Suspense fallback="loading...">
 				<AlbumInfo />
 			</Suspense>
 			<Controller />
 			<Photos />
-			<div className="flex gap-4 items-center">
+			<div className="flex items-center gap-4">
 				<AppearanceSwitch />
 				<LanguageSwitch />
 			</div>

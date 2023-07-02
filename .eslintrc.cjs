@@ -7,6 +7,7 @@ module.exports = {
 		"plugin:react/recommended",
 		"plugin:react/jsx-runtime",
 		"plugin:react-hooks/recommended",
+		"plugin:tailwindcss/recommended",
 	],
 	plugins: ["@typescript-eslint", "react-refresh"],
 	parser: "@typescript-eslint/parser",
