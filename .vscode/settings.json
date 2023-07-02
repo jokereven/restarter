@@ -9,5 +9,10 @@
 	"javascript.preferences.importModuleSpecifier": "non-relative",
 	"i18n-ally.disabled": false,
 	"i18n-ally.localesPaths": ["src/locales"],
-	"cSpell.words": ["tailwindcss"]
+	"cSpell.words": ["tailwindcss"],
+	"tailwindCSS.experimental.classRegex": [
+		"cva\\(([^)]*)\\)",
+		"[\"'`]([^\"'`]*).*?[\"'`]"
+	],
+	"tailwindCSS.lint.cssConflict": "ignore"
 }
