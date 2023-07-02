@@ -3,8 +3,8 @@
 		"editorconfig.editorconfig",
 		"esbenp.prettier-vscode",
 		"dbaeumer.vscode-eslint",
-		"antfu.unocss",
 		"antfu.iconify",
-		"lokalise.i18n-ally"
+		"lokalise.i18n-ally",
+		"bradlc.vscode-tailwindcss"
 	]
 }
