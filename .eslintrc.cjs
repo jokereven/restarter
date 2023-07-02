@@ -30,6 +30,8 @@ module.exports = {
 		// https://vitejs.dev/guide/features.html#typescript
 		"@typescript-eslint/consistent-type-imports": "error",
 
+		// tailwind
+		"tailwindcss/classnames-order": "off",
 		"tailwindcss/no-custom-classname": "warn",
 
 		"react/prop-types": "off",
