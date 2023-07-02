@@ -1,28 +1,14 @@
-# Logs
-logs
-*.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
-lerna-debug.log*
+*.*
+!*.tsx
+!*.ts
+!*.js
+!*.cjs
+!*.mjs
+!*.css
+!*.json
+!*.md
 
 node_modules
 dist
 dist-ssr
 dist-electron
-*.local
-
-# Editor directories and files
-.idea
-.DS_Store
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
-
-release
-
-pnpm-lock.yaml
-electron-builder.json5
