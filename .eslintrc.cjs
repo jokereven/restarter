@@ -1,5 +1,6 @@
 module.exports = {
 	extends: [
+		"plugin:tailwindcss/recommended",
 		"eslint:recommended",
 		"plugin:@typescript-eslint/recommended",
 		"plugin:@typescript-eslint/recommended-type-checked",
@@ -7,7 +8,6 @@ module.exports = {
 		"plugin:react/recommended",
 		"plugin:react/jsx-runtime",
 		"plugin:react-hooks/recommended",
-		"plugin:tailwindcss/recommended",
 	],
 	plugins: ["@typescript-eslint", "react-refresh"],
 	parser: "@typescript-eslint/parser",
@@ -20,12 +20,17 @@ module.exports = {
 		react: {
 			version: "detect",
 		},
+		tailwindcss: {
+			callees: ["classnames", "cn", "cva"],
+		},
 	},
 	rules: {
 		// https://twitter.com/Brooooook_lyn/status/1666637274757595141
 		"react/jsx-no-leaked-render": ["error", { validStrategies: ["coerce"] }],
 		// https://vitejs.dev/guide/features.html#typescript
 		"@typescript-eslint/consistent-type-imports": "error",
+
+		"tailwindcss/no-custom-classname": "warn",
 
 		"react/prop-types": "off",
 

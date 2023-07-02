@@ -8,5 +8,6 @@
 	"typescript.preferences.importModuleSpecifier": "non-relative",
 	"javascript.preferences.importModuleSpecifier": "non-relative",
 	"i18n-ally.disabled": false,
-	"i18n-ally.localesPaths": ["src/locales"]
+	"i18n-ally.localesPaths": ["src/locales"],
+	"cSpell.words": ["tailwindcss"]
 }

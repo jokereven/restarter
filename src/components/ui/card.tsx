@@ -18,10 +18,7 @@ function Card({
 	const [, setSelectedId] = useAtom(selectedIdAtom)
 	return (
 		<motion.button
-			className={cn(
-				"rounded-lg border border-border bg-card text-card-foreground shadow-sm p-6",
-				className
-			)}
+			className={cn("rounded-lg border p-6 shadow-sm", className)}
 			layoutId={id}
 			onClick={() => {
 				setSelectedId(id)
@@ -54,10 +51,7 @@ function SelectedCard({
 				>
 					<motion.div
 						layoutId={selectedId}
-						className={cn(
-							"rounded-lg overflow-clip border border-border bg-card text-card-foreground shadow-sm",
-							className
-						)}
+						className={cn("text-clip rounded-lg border shadow-sm", className)}
 					>
 						{children}
 					</motion.div>
