@@ -40,6 +40,7 @@ module.exports = {
 		"react-refresh/only-export-components": "warn",
 
 		// formatting
+		"prefer-template": "warn",
 		"react/jsx-curly-brace-presence": ["warn", "never"],
 	},
 }
