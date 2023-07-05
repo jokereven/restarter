@@ -1,14 +1,4 @@
-*.*
-!*.tsx
-!*.ts
-!*.js
-!*.cjs
-!*.mjs
-!*.css
-!*.json
-!*.md
-
-node_modules
 dist
-dist-ssr
 dist-electron
+electron-builder.json5
+pnpm-lock.yaml
