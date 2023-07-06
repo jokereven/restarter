@@ -14,5 +14,7 @@
     "cva\\(([^)]*)\\)",
     "[\"'`]([^\"'`]*).*?[\"'`]"
   ],
-  "tailwindCSS.lint.cssConflict": "ignore"
+  "files.associations": {
+    "*.css": "tailwindcss"
+  }
 }
