@@ -6,7 +6,7 @@
   "packageManager": "pnpm@8.6.6",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build && electron-builder",
+    "build": "tsc && vite build",
     "preview": "vite preview",
     "format": "prettier . --write",
     "lint": "DEBUG=eslint:cli-engine eslint --fix ."

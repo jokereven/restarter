@@ -8,6 +8,7 @@ export default defineConfig({
     react(),
     // uncomment this to enable electron support
     // "main": "dist-electron/main.js",
+    //  && electron-builder
 
     // electron([
     // 	{
