@@ -2,6 +2,7 @@
   "name": "restarter",
   "private": true,
   "version": "0.0.0",
+  "type": "module",
   "packageManager": "pnpm@8.6.6",
   "scripts": {
     "dev": "vite",
@@ -9,6 +10,9 @@
     "preview": "vite preview",
     "format": "prettier . --write",
     "lint": "DEBUG=eslint:cli-engine eslint --fix ."
+  },
+  "prettier": {
+    "semi": false
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.0.2",
@@ -53,9 +57,5 @@
     "vite": "^4.3.9",
     "vite-plugin-electron": "^0.12.0",
     "vite-plugin-electron-renderer": "^0.14.5"
-  },
-  "main": "dist-electron/main.js",
-  "prettier": {
-    "semi": false
   }
 }

@@ -6,6 +6,9 @@ import { defineConfig } from "vite"
 export default defineConfig({
   plugins: [
     react(),
+    // uncomment this to enable electron support
+    // "main": "dist-electron/main.js",
+
     // electron([
     // 	{
     // 		// Main-Process entry file of the Electron App.
