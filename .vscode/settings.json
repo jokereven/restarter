@@ -7,14 +7,14 @@
   },
   "typescript.preferences.importModuleSpecifier": "non-relative",
   "javascript.preferences.importModuleSpecifier": "non-relative",
-  "i18n-ally.disabled": false,
-  "i18n-ally.localesPaths": ["src/locales"],
-  "cSpell.words": ["tailwindcss"],
   "tailwindCSS.experimental.classRegex": [
     "cva\\(([^)]*)\\)",
     "[\"'`]([^\"'`]*).*?[\"'`]"
   ],
   "files.associations": {
     "*.css": "tailwindcss"
-  }
+  },
+  "i18n-ally.disabled": false,
+  "i18n-ally.localesPaths": ["src/locales"],
+  "cSpell.words": ["classname", "tailwindcss"]
 }
