@@ -12,7 +12,7 @@ export const incAndDecAtom = atom(
 	(get) => get(idAtom),
 	(_get, set, action: "inc" | "dec") => {
 		set(idAtom, (pre) => (action === "inc" ? pre + 1 : pre - 1))
-	}
+	},
 )
 
 export function useAlbum() {
@@ -23,6 +23,6 @@ export function useAlbum() {
 export function usePhotos() {
 	const id = useAtomValue(idAtom)
 	return useSWR(["photos", id], ([, id]) =>
-		fetcher<Photo[]>(`/albums/${id}/photos`)
+		fetcher<Photo[]>(`/albums/${id}/photos`),
 	)
 }

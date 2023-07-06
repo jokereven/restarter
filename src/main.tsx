@@ -12,5 +12,5 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
 			{/* <TitleBar /> */}
 			<App />
 		</>
-	</React.StrictMode>
+	</React.StrictMode>,
 )

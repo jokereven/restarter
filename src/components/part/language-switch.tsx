@@ -6,7 +6,7 @@ export default function LanguageSwitch() {
 	const changeLanguage = () => {
 		if (Array.isArray(i18n.options.supportedLngs)) {
 			const allLangs = i18n.options.supportedLngs.filter(
-				(i) => i !== "cimode"
+				(i) => i !== "cimode",
 			) as string[]
 			const currentLang = i18n.language
 			const nextLang =
