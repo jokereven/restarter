@@ -17,6 +17,9 @@ export default function LanguageSwitch() {
   }
 
   return (
-    <button className="i-carbon-translate" onClick={changeLanguage}></button>
+    <button
+      className="i-carbon-translate text-2xl"
+      onClick={changeLanguage}
+    ></button>
   )
 }
