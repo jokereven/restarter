@@ -1,30 +1,30 @@
 function domReady(
-	condition: DocumentReadyState[] = ["complete", "interactive"],
+  condition: DocumentReadyState[] = ["complete", "interactive"],
 ) {
-	return new Promise((resolve) => {
-		if (condition.includes(document.readyState)) {
-			resolve(true)
-		} else {
-			document.addEventListener("readystatechange", () => {
-				if (condition.includes(document.readyState)) {
-					resolve(true)
-				}
-			})
-		}
-	})
+  return new Promise((resolve) => {
+    if (condition.includes(document.readyState)) {
+      resolve(true)
+    } else {
+      document.addEventListener("readystatechange", () => {
+        if (condition.includes(document.readyState)) {
+          resolve(true)
+        }
+      })
+    }
+  })
 }
 
 const safeDOM = {
-	append(parent: HTMLElement, child: HTMLElement) {
-		if (!Array.from(parent.children).find((e) => e === child)) {
-			parent.appendChild(child)
-		}
-	},
-	remove(parent: HTMLElement, child: HTMLElement) {
-		if (Array.from(parent.children).find((e) => e === child)) {
-			parent.removeChild(child)
-		}
-	},
+  append(parent: HTMLElement, child: HTMLElement) {
+    if (!Array.from(parent.children).find((e) => e === child)) {
+      parent.appendChild(child)
+    }
+  },
+  remove(parent: HTMLElement, child: HTMLElement) {
+    if (Array.from(parent.children).find((e) => e === child)) {
+      parent.removeChild(child)
+    }
+  },
 }
 
 /**
@@ -34,8 +34,8 @@ const safeDOM = {
  * https://matejkustec.github.io/SpinThatShit
  */
 function loading() {
-	const className = `loaders-css__square-spin`
-	const styleContent = `
+  const className = `loaders-css__square-spin`
+  const styleContent = `
 @keyframes square-spin {
   25% { transform: perspective(100px) rotateX(180deg) rotateY(0); }
   50% { transform: perspective(100px) rotateX(180deg) rotateY(180deg); }
@@ -62,24 +62,24 @@ function loading() {
   z-index: 9;
 }
     `
-	const oStyle = document.createElement("style")
-	const oDiv = document.createElement("div")
+  const oStyle = document.createElement("style")
+  const oDiv = document.createElement("div")
 
-	oStyle.id = "app-loading-style"
-	oStyle.innerHTML = styleContent
-	oDiv.className = "app-loading-wrap"
-	oDiv.innerHTML = `<div class="${className}"><div></div></div>`
+  oStyle.id = "app-loading-style"
+  oStyle.innerHTML = styleContent
+  oDiv.className = "app-loading-wrap"
+  oDiv.innerHTML = `<div class="${className}"><div></div></div>`
 
-	return {
-		appendLoading: () => {
-			safeDOM.append(document.head, oStyle)
-			safeDOM.append(document.body, oDiv)
-		},
-		removeLoading: () => {
-			safeDOM.remove(document.head, oStyle)
-			safeDOM.remove(document.body, oDiv)
-		},
-	}
+  return {
+    appendLoading: () => {
+      safeDOM.append(document.head, oStyle)
+      safeDOM.append(document.body, oDiv)
+    },
+    removeLoading: () => {
+      safeDOM.remove(document.head, oStyle)
+      safeDOM.remove(document.body, oDiv)
+    },
+  }
 }
 
 // ----------------------------------------------------------------------
@@ -88,8 +88,8 @@ const { appendLoading, removeLoading } = loading()
 void domReady().then(appendLoading)
 
 window.onmessage = (ev) => {
-	// eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-	ev.data.payload === "removeLoading" && removeLoading()
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+  ev.data.payload === "removeLoading" && removeLoading()
 }
 
 setTimeout(removeLoading, 2999)
