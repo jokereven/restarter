@@ -20,6 +20,7 @@ jobs:
           - dockerfile: ./dockerfile
             image: ${{ github.repository }}/frontend
             container: frontend
+            port: 7843:80
     permissions:
       contents: read
       packages: write
@@ -60,4 +61,4 @@ jobs:
             docker pull ${{ env.registry }}/${{ matrix.image }}:latest
             docker ps -a | grep ${{ matrix.image }} | awk '{print $1}' | xargs docker stop
             docker rm -v $(docker ps -a -q -f status=exited)
-            docker run -d -p 80:80 --name ${{ matrix.container }} ${{ env.registry }}/${{ matrix.image }}
+            docker run -d -p ${{ matrix.port }} --name ${{ matrix.container }} ${{ env.registry }}/${{ matrix.image }}
