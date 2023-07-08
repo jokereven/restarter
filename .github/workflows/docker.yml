@@ -59,6 +59,6 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           script: |
             docker pull ${{ env.registry }}/${{ matrix.image }}:latest
-            docker ps -a | grep ${{ matrix.image }} | awk '{print $1}' | xargs docker stop
+            docker ps -q --filter ancestor="${{ env.registry }}/${{ matrix.image }}" | xargs -r docker stop
             docker rm -v $(docker ps -a -q -f status=exited)
             docker run -d -p ${{ matrix.port }} --name ${{ matrix.container }} ${{ env.registry }}/${{ matrix.image }}
