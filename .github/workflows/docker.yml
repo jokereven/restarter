@@ -59,6 +59,6 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           script: |
             docker pull ${{ env.registry }}/${{ matrix.image }}:latest
-            docker ps -q --filter ancestor="${{ env.registry }}/${{ matrix.image }}" | xargs -r docker stop
-            docker rm -v $(docker ps -a -q -f status=exited)
+            docker ps -q --filter ancestor="${{ env.registry }}/${{ matrix.image }}" | xargs -r docker stop | xargs -r docker rm
+            docker image prune
             docker run -d -p ${{ matrix.port }} --name ${{ matrix.container }} ${{ env.registry }}/${{ matrix.image }}
