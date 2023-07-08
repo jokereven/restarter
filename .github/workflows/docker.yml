@@ -58,6 +58,7 @@ jobs:
           username: ${{ secrets.SERVER_USERNAME }}
           key: ${{ secrets.SSH_KEY }}
           script: |
+            docker login -u ${{ github.actor }} -p ${{ secrets.GITHUB_TOKEN }} ${{ env.registry }}
             docker pull ${{ env.registry }}/${{ matrix.image }}:latest
             docker ps -q --filter ancestor="${{ env.registry }}/${{ matrix.image }}" | xargs -r docker stop | xargs -r docker rm
             docker image prune
