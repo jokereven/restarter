@@ -60,6 +60,6 @@ jobs:
           script: |
             docker login -u ${{ github.actor }} -p ${{ secrets.GITHUB_TOKEN }} ${{ env.registry }}
             docker pull ${{ env.registry }}/${{ matrix.image }}:latest
-            docker ps -q --filter ancestor="${{ env.registry }}/${{ matrix.image }}" | xargs -r docker stop | xargs -r docker rm
-            docker image prune -f
+            docker stop ${{ matrix.container }} || true && docker rm ${{ matrix.container }} || true
             docker run -d -p ${{ matrix.port }} --name ${{ matrix.container }} ${{ env.registry }}/${{ matrix.image }}
+            docker rmi ${{ env.registry }}/${{ matrix.image }}
