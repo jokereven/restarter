@@ -62,4 +62,4 @@ jobs:
             docker pull ${{ env.registry }}/${{ matrix.image }}:latest
             docker stop ${{ matrix.container }} || true && docker rm ${{ matrix.container }} || true
             docker run -d -p ${{ matrix.port }} --name ${{ matrix.container }} ${{ env.registry }}/${{ matrix.image }}
-            docker rmi ${{ env.registry }}/${{ matrix.image }}
+            docker rmi ${{ env.registry }}/${{ matrix.image }} || true
